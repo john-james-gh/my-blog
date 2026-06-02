@@ -24,8 +24,9 @@ const eslintConfig = defineConfig([
       "simple-import-sort": simpleImportSort,
     },
     rules: {
-      "simple-import-sort/exports": "warn",
-      "simple-import-sort/imports": "warn",
+      "@typescript-eslint/consistent-type-imports": "error",
+      "simple-import-sort/exports": "error",
+      "simple-import-sort/imports": "error",
     },
   },
 ]);
