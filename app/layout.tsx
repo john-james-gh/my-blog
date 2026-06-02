@@ -3,15 +3,20 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
+import { HOME_OG_IMAGE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: "My Blog",
-  description: `A minimalist blog powered by ${CMS_NAME}.`,
+  title: {
+    default: SITE_NAME,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
   openGraph: {
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
     images: [HOME_OG_IMAGE_URL],
   },
 };
