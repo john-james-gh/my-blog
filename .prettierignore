@@ -1,4 +1,5 @@
 .agents
+.playwright-mcp
 .next
 out
 build
