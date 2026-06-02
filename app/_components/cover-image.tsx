@@ -14,17 +14,16 @@ const CoverImage = ({ title, src, slug, eager = false }: Props) => {
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("h-full w-full object-cover shadow-sm", {
-        "hover:shadow-lg transition-shadow duration-200": slug,
-      })}
+      className="h-full w-full object-cover shadow-sm"
       width={1300}
       height={630}
       loading={eager ? "eager" : "lazy"}
     />
   );
+
   return (
     <div
-      className={cn("aspect-[16/9] max-h-[520px] overflow-hidden", {
+      className={cn("aspect-16/9 max-h-[520px] overflow-hidden", {
         "mx-auto": !slug,
       })}
     >
