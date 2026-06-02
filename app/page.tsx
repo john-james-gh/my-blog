@@ -1,31 +1,40 @@
-export default function Home() {
-  return (
-    <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col px-6 py-12 sm:px-8 sm:py-16">
-      <header className="border-b border-stone-200 pb-10">
-        <p className="font-mono text-sm uppercase tracking-[0.18em] text-stone-500">
-          Notes and essays
-        </p>
-        <h1 className="mt-5 max-w-2xl text-5xl font-semibold leading-tight text-stone-950 sm:text-6xl">
-          My Blog
-        </h1>
-        <p className="mt-6 max-w-xl text-lg leading-8 text-stone-600">
-          A quiet place for writing about software, systems, and the work of
-          making things clearer.
-        </p>
-      </header>
+import Container from "@/app/_components/container";
+import { HeroPost } from "@/app/_components/hero-post";
+import { Intro } from "@/app/_components/intro";
+import { MoreStories } from "@/app/_components/more-stories";
+import { getAllPosts } from "@/lib/api";
 
-      <section className="grid gap-8 py-10">
-        <article className="group">
-          <p className="font-mono text-sm text-stone-500">Draft</p>
-          <h2 className="mt-2 text-2xl font-semibold text-stone-950 transition-colors group-hover:text-stone-700">
-            Start with the shape of the problem
-          </h2>
-          <p className="mt-3 max-w-2xl leading-7 text-stone-600">
-            A placeholder post for turning the default app into a useful home
-            for future notes.
-          </p>
-        </article>
-      </section>
+export default function Index() {
+  const allPosts = getAllPosts();
+
+  const heroPost = allPosts[0];
+  const morePosts = allPosts.slice(1);
+
+  return (
+    <main>
+      <Container>
+        <Intro />
+        {heroPost ? (
+          <HeroPost
+            title={heroPost.title}
+            coverImage={heroPost.coverImage}
+            date={heroPost.date}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+        ) : (
+          <section className="mb-24 max-w-2xl border-t border-neutral-200 pt-10">
+            <h2 className="text-3xl font-semibold tracking-tight">
+              No posts yet.
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-neutral-600">
+              Add a Markdown file to the _posts directory to publish the first
+              entry.
+            </p>
+          </section>
+        )}
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      </Container>
     </main>
   );
 }
