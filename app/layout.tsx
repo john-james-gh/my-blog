@@ -3,6 +3,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import type { PropsWithChildren } from "react";
 
 import { HOME_OG_IMAGE_URL, SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 import { getBaseUrl } from "@/lib/url";
@@ -23,11 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
       <body className={inter.className}>
