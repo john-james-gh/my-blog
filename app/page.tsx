@@ -24,12 +24,9 @@ export default function Index() {
           />
         ) : (
           <section className="mb-24 max-w-2xl border-t border-neutral-200 pt-10">
-            <h2 className="text-3xl font-semibold tracking-tight">
-              No posts yet.
-            </h2>
+            <h2 className="text-3xl font-semibold tracking-tight">No posts yet.</h2>
             <p className="mt-4 text-lg leading-8 text-neutral-600">
-              Add a Markdown file to the _posts directory to publish the first
-              entry.
+              Add a Markdown file to the _posts directory to publish the first entry.
             </p>
           </section>
         )}

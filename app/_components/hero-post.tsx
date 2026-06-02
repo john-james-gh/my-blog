@@ -1,5 +1,7 @@
-import CoverImage from "@/app/_components/cover-image";
 import Link from "next/link";
+
+import CoverImage from "@/app/_components/cover-image";
+
 import DateFormatter from "./date-formatter";
 
 type Props = {
@@ -10,13 +12,7 @@ type Props = {
   slug: string;
 };
 
-export function HeroPost({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  slug,
-}: Props) {
+export function HeroPost({ title, coverImage, date, excerpt, slug }: Props) {
   return (
     <section>
       <div className="mb-8 md:mb-16">

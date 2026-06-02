@@ -1,7 +1,9 @@
-import { Post } from "@/types/post";
 import fs from "node:fs";
-import matter from "gray-matter";
 import { join } from "node:path";
+
+import matter from "gray-matter";
+
+import { Post } from "@/types/post";
 
 const postsDirectory = join(process.cwd(), "_posts");
 

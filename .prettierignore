@@ -1,0 +1,6 @@
+.agents
+.next
+out
+build
+node_modules
+pnpm-lock.yaml

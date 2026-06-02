@@ -1,15 +1,14 @@
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
+import "./globals.css";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import "./globals.css";
+import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "My Blog",
   description: `A minimalist blog powered by ${CMS_NAME}.`,
   openGraph: {

@@ -1,4 +1,5 @@
 import { Post } from "@/types/post";
+
 import { PostPreview } from "./post-preview";
 
 type Props = {
