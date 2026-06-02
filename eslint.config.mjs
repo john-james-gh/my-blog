@@ -13,6 +13,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Project/tooling artifacts:
+    ".agents/**",
+    "node_modules/**",
+    "pnpm-lock.yaml",
+    "public/**",
   ]),
   {
     plugins: {
