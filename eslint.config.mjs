@@ -15,10 +15,15 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Project/tooling artifacts:
     ".agents/**",
+    ".playwright/**",
+    ".playwright-cli/**",
     ".playwright-mcp/**",
+    "blob-report/**",
     "node_modules/**",
+    "playwright-report/**",
     "pnpm-lock.yaml",
     "public/**",
+    "test-results/**",
   ]),
   {
     plugins: {

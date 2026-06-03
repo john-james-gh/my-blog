@@ -1,7 +1,12 @@
 .agents
+.playwright
+.playwright-cli
 .playwright-mcp
+blob-report
 .next
 out
 build
 node_modules
+playwright-report
 pnpm-lock.yaml
+test-results
