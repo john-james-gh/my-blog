@@ -17,7 +17,7 @@ GraphQL solves a real problem, but that problem is far more niche than people ad
 
 This isn’t a “GraphQL bad” post. It’s a “GraphQL after the honeymoon” post.
 
-### What GraphQL is supposed to solve
+## What GraphQL is supposed to solve
 
 The main problem GraphQL tries to solve is overfetching.
 The idea is simple and appealing:
@@ -29,7 +29,7 @@ The idea is simple and appealing:
 
 On paper, that’s great. In practice, things are messier.
 
-### Overfetching is already solved by BFFs
+## Overfetching is already solved by BFFs
 
 Most enterprise frontend architectures already have a BFF (Backend for Frontend).
 
@@ -60,7 +60,7 @@ You’re usually talking about saving a handful of fields per request, in exchan
 
 That’s a very expensive trade for a few extra kilobytes.
 
-### Implementation time is much higher than REST
+## Implementation time is much higher than REST
 
 GraphQL takes significantly longer to implement than a REST BFF.
 
@@ -82,7 +82,7 @@ With GraphQL, you now have to:
 GraphQL optimizes consumption at the cost of production speed.
 In an enterprise environment, production speed matters more than theoretical elegance.
 
-### Observability is worse by default
+## Observability is worse by default
 
 This one doesn’t get talked about enough.
 GraphQL has this weird status code convention:
@@ -107,7 +107,7 @@ Yes, Apollo lets you customize this behavior. But that’s kind of the point. Yo
 
 This matters when you’re on call, not when you’re reading blog posts.
 
-### Caching sounds amazing until you live with it
+## Caching sounds amazing until you live with it
 
 Apollo’s normalized caching is genuinely impressive.
 
@@ -126,7 +126,7 @@ At that point:
 
 Meanwhile, REST happily overfetches a few extra fields, caches the whole response, and moves on. Extra kilobytes are cheap. Complexity isn’t.
 
-### The ID requirement is a leaky abstraction
+## The ID requirement is a leaky abstraction
 
 Apollo expects every object to have an id or \_id field by default, or you need to configure a custom identifier.
 
@@ -150,7 +150,7 @@ Which is ironic, considering the original goal was to reduce overfetching.
 
 REST clients don’t impose this kind of constraint.
 
-### File uploads and downloads are awkward
+## File uploads and downloads are awkward
 
 GraphQL is simply not a good fit for binary data.
 
@@ -163,7 +163,7 @@ Embedding large payloads like PDFs directly in GraphQL responses leads to bloate
 
 This alone breaks the “single API” story.
 
-### Onboarding is slower
+## Onboarding is slower
 
 Most frontend and full-stack developers are far more experienced with REST than GraphQL.
 
@@ -179,7 +179,7 @@ That learning curve creates friction, especially when teams need to move fast.
 
 REST is boring, but boring scales extremely well.
 
-### Error handling is harder than it needs to be
+## Error handling is harder than it needs to be
 
 GraphQL error responses are… weird.
 
@@ -201,7 +201,7 @@ Compare that to a simple REST setup where:
 
 Simple errors are easier to reason about than elegant ones.
 
-### The net result
+## The net result
 
 GraphQL absolutely has valid use cases.
 

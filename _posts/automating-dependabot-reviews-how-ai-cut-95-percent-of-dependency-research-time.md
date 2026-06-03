@@ -11,7 +11,7 @@ After the unused dep cleanup in my last post (used Knip to trim ~120 packages), 
 
 After you clean house, the next natural step is to keep it clean. That means upgrading what’s left and preventing drift.
 
-### The setup
+## The setup
 
 Our company policy says all production deps must be on supported, latest versions. Dev deps get a little more slack.
 
@@ -29,7 +29,7 @@ One dev would check usage, changelogs, risk level, and summarize everything for 
 
 Repeat that across ~100 packages and you’ve got a lot of busywork.
 
-### The problem
+## The problem
 
 That research phase was repetitive and slow.
 It wasn’t hard work, just constant tab-switching, grepping, and cross-checking.
@@ -37,7 +37,7 @@ All the info existed, it just took time to find.
 
 So I started thinking, what if we offload that entire research phase to AI and let humans focus on decisions instead of data gathering?
 
-### Picking the right AI
+## Picking the right AI
 
 At my company, Copilot is the only approved AI.
 That’s fine. It’s mature enough, and we already use it daily.
@@ -50,7 +50,7 @@ No grep, no codebase context, no clue how widely a dep is used.
 
 Not good enough.
 
-### How I actually ran it
+## How I actually ran it
 
 Copilot CLI can run inside GitHub Actions with access to the full checked-out repo.
 That’s the key. It can grep, search configs, and inspect code usage just like a human would, only faster.
@@ -97,13 +97,13 @@ I also found that AI doesn’t hallucinate much when it’s asked to find files 
 You can then post review.md back as a PR comment, send it to Jira via API, or ship it anywhere through MCP.
 It’ll include reasoning process. You can trim that part if you want the research only.
 
-### How it flows
+## How it flows
 
 Automation does the grind, humans handle the judgment.
 
 ![Dependabot AI review flow](/assets/blog/automating-dependabot-reviews-how-ai-cut-95-percent-of-dependency-research-time/flow.png)
 
-### Security bits
+## Security bits
 
 Before rolling this out, I ran it through an ADR and review cycle with our security team/AppSec.
 
@@ -120,7 +120,7 @@ From a permissions standpoint:
 
 Some other AI CLIs might be more feature-rich today, but Copilot CLI was the safest and simplest choice for our setup.
 
-### Results
+## Results
 
 This workflow cut our research time by roughly 95%.
 It scales perfectly. You can centralize it in your internal Actions repo and import it everywhere across the org.
@@ -128,7 +128,7 @@ It scales perfectly. You can centralize it in your internal Actions repo and imp
 Average run time: ~2 minutes even on large monorepos.
 Each review burns one Copilot premium request. Same cost as a single IDE chat prompt.
 
-### That’s it
+## That’s it
 
 You could do this inside your IDE chat, but it doesn’t scale. It’s still manual.
 

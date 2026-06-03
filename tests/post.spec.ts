@@ -26,7 +26,7 @@ test.describe("post page", () => {
       ),
     ).toBeVisible();
     await expect(
-      article.getByRole("heading", { level: 3, name: "What GraphQL is supposed to solve" }),
+      article.getByRole("heading", { level: 2, name: "What GraphQL is supposed to solve" }),
     ).toBeVisible();
     await expect(
       article.getByText("the client asks for exactly the fields it needs", { exact: true }),

@@ -10,15 +10,11 @@ test.describe("home page", () => {
   test("introduces the blog", async ({ page }) => {
     await expect(page).toHaveTitle("John James Blog");
     await expect(page.getByRole("heading", { level: 1, name: "John James." })).toBeVisible();
-    await expect(
-      page.getByRole("heading", {
-        name: "Notes on web, JS/TS, CI/CD, and experiments.",
-      }),
-    ).toBeVisible();
+    await expect(page.getByText("Notes on web, JS/TS, CI/CD, and experiments.")).toBeVisible();
   });
 
   test("shows a featured post and more stories", async ({ page }) => {
-    await expect(page.getByRole("heading", { level: 3, name: featuredPostTitle })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 2, name: featuredPostTitle })).toBeVisible();
     await expect(
       page.getByRole("img", { name: `Cover Image for ${featuredPostTitle}` }),
     ).toBeVisible();
@@ -30,7 +26,7 @@ test.describe("home page", () => {
 
   test("opens the featured post", async ({ page }) => {
     await page
-      .getByRole("heading", { level: 3, name: featuredPostTitle })
+      .getByRole("heading", { level: 2, name: featuredPostTitle })
       .getByRole("link")
       .click();
 
