@@ -41,21 +41,16 @@ Knip’s pass flagged a ton of stuff on the first scan. About 40% of what it cal
 
 Knip is a signal, not the judge. For each package it flagged:
 
-uninstall it
-
-build, test, lint, e2e, codegen/typegen, and then boot the owning app
-
-if something broke, put it back and document why in my Knip ignore list
+- uninstall it
+- build, test, lint, e2e, codegen/typegen, and then boot the owning app
+- if something broke, put it back and document why in my Knip ignore list
 
 Most of the false positives were “used but not imported” stuff:
 
-strings in config files, for example Jest preset or runner names
-
-CLI tools only used in scripts or CI
-
-plugin discovery patterns
-
-type-only or toolchain stuff
+- strings in config files, for example Jest preset or runner names
+- CLI tools only used in scripts or CI
+- plugin discovery patterns
+- type-only or toolchain stuff
 
 I kept a running ignore list with little comments so future me/dev isn’t confused.
 

@@ -5,10 +5,12 @@ import type { BlogPosting, WithContext } from "schema-dts";
 import Container from "@/app/_components/container";
 import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
+import { PostFooter } from "@/app/_components/post-footer";
 import { PostHeader } from "@/app/_components/post-header";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/md-to-html";
+import { getReadingTime } from "@/lib/reading-time";
 import { getBaseUrl } from "@/lib/url";
 import type { Post as BlogPost } from "@/types/post";
 
@@ -25,14 +27,24 @@ export default async function Post(props: Params) {
   const pageJson = serializeJsonLd(generatePostJsonLd(post, getBaseUrl()));
 
   const content = await markdownToHtml(post.content || "");
+  const readingTime = getReadingTime(post.content || "");
+  const allPosts = getAllPosts();
+  const currentPostIndex = allPosts.findIndex((candidate) => candidate.slug === post.slug);
+  const nextPost = allPosts[currentPostIndex + 1];
 
   return (
     <main>
       <Container>
         <Header />
         <article className="mb-32">
-          <PostHeader title={post.title} coverImage={post.coverImage} date={post.date} />
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage}
+            date={post.date}
+            readingTime={readingTime}
+          />
           <PostBody content={content} />
+          <PostFooter nextPost={nextPost} />
         </article>
       </Container>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: pageJson }} />
