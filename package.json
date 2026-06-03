@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
+    "test:install": "playwright install --with-deps chromium",
     "test": "playwright test"
   },
   "dependencies": {
